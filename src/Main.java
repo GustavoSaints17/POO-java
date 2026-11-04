@@ -32,7 +32,6 @@ class Carro {
         this.cor = cor;
     }
 
-    public boolean setCor();
 
     void ligar() {
         System.out.println("Ligado!"); // METODO

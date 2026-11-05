@@ -84,7 +84,7 @@ public class pagamento {
             func.exibirholerite();
 
 
-            totalLiquidoEmpresa += func.salarioliqu ido();
+            totalLiquidoEmpresa += func.salarioliquido();
         }
 
         System.out.println("\n========================================");

@@ -4,35 +4,41 @@ class ContaBanco {
     private double saldo;
 
 
+    ContaBanco(String titular, int numero, double depositoinicial) {
+        this.titular = titular;
+        this.numero = numero;
+        this.saldo = depositoinicial;
+    }
+
     ContaBanco(String titular, int numero) {
         this.titular = titular;
         this.numero = numero;
         this.saldo = 0.0;
     }
 
-    ContaBanco(String titular, int numero, double depositoinicial) {
-        this(titular, numero);
-        depositar(depositoinicial);
-    }
-
-    public void depositar(double valor) {
+    void depositar(double valor) {
         if (valor > 0) {
             saldo += valor;
+        } else {
+            System.out.println("valor invalido");
         }
     }
 
-    public boolean sacar(double valor) {
+    boolean sacar(double valor) {
         if (valor > 0 && valor <= saldo) {
             saldo -= valor;
             return true;
+        }else{
+            System.out.println("saldo insuficiente");
+            return false;
         }
-        return false;
+
     }
 
-    public void exibirExtrato() {
-        System.out.println("--- Extrato Bancário ---");
+    void exibirExtrato() {
+        System.out.println("--- Extrato Bancario --- ");
         System.out.println("Titular: " + titular);
-        System.out.println("Número da Conta: " + numero);
+        System.out.println("Numero da Conta: " + numero);
         System.out.println("Saldo Atual: R$ " + saldo);
     }
 
@@ -40,11 +46,9 @@ class ContaBanco {
     public String getTitular() {
         return titular;
     }
-
     public int getNumero() {
         return numero;
     }
-
     public double getSaldo() {
         return saldo;
     }
